@@ -78,17 +78,18 @@
   
       function fetchServerTime() {
         $.ajax({
-          url: 'http://worldtimeapi.org/api/timezone/Africa/Algiers',
-          type: 'GET',
-          success: function(data) {
-            var serverTime = new Date(data.datetime).getTime();
-            updateOdometer(serverTime); // Update odometer with initial server time
-            setInterval(function() {
-              serverTime += 1000; // Increment server time by 1 second
-              updateOdometer(serverTime);
-            }, 1000);
-          }
-        });
+  url: 'https://worldtimeapi.org/api/timezone/Africa/Algiers',
+  type: 'GET',
+  success: function(data) {
+    var serverTime = new Date(data.datetime).getTime();
+    updateOdometer(serverTime); // Update odometer with initial server time
+    setInterval(function() {
+      serverTime += 1000; // Increment server time by 1 second
+      updateOdometer(serverTime);
+    }, 1000);
+  }
+});
+
       }
   
       fetchServerTime(); // Fetch server time immediately
